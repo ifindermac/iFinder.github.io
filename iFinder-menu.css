@@ -1,0 +1,199 @@
+/* ================== ESTILOS AVANZADOS DEL MENÚ ================== */
+
+/* MENÚ DESKTOP - ANIMACIONES Y EFECTOS MEJORADOS */
+.categories-menu {
+    animation: menuFadeIn 0.5s ease-out;
+}
+
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* EFECTOS DE HOVER EN BOTONES DE CATEGORÍA */
+.category-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.category-link:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* EFECTOS DE ICONO EN HOVER */
+.category-link .material-icons {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.category-link:hover .material-icons {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.category-link.active .material-icons {
+    animation: iconPulse 0.6s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* MENÚ MÓVIL - ESTILOS MEJORADOS */
+@media (max-width: 768px) {
+    
+    .menu-toggle {
+        position: relative;
+        display: block !important;
+    }
+
+    /* CATEGORÍAS MENÚ MÓVIL CON SCROLL SUAVE */
+    .categories-menu {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    }
+
+    .categories-menu::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .categories-menu::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .categories-menu::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+    }
+
+    .categories-menu::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* BOTONES DE CATEGORÍA MÓVILES CON SLIDE EFFECT */
+    .category-link {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .category-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .category-link:active::before {
+        left: 100%;
+    }
+
+    .category-link:hover {
+        padding-left: 1.8rem;
+        transform: translateX(8px) translateY(-2px);
+    }
+
+    /* INDICADOR DE CATEGORÍA ACTIVA */
+    .category-link.active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, #60d5f9, #2b9cca);
+        animation: leftBorderSlide 0.4s ease;
+    }
+
+    @keyframes leftBorderSlide {
+        from {
+            opacity: 0;
+            width: 0;
+        }
+        to {
+            opacity: 1;
+            width: 4px;
+        }
+    }
+}
+
+/* TRANSICIÓN DE MENÚ AL CERRAR */
+.categories-menu.active {
+    pointer-events: auto;
+}
+
+/* SEPARADOR DEL MENÚ */
+.divider {
+    display: inline-block;
+    width: 1px;
+    animation: dividerFadeIn 0.3s ease;
+}
+
+@keyframes dividerFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* MÉTODOS DE PAGO - ESTÁTICOS SIN ANIMACIONES */
+.letrap {
+    padding-left: 10px;
+}
+
+/* RESPONSIVO PARA TABLETS */
+@media (max-width: 1024px) {
+    .category-link {
+        padding: 0.55rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* RESPONSIVO PARA MÓVILES */
+@media (max-width: 480px) {
+    .category-link {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .category-link .material-icons {
+        font-size: 1rem;
+    }
+
+    .payment-logo-container {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .payment-logo-img {
+        width: 18px;
+        height: 18px;
+    }
+}

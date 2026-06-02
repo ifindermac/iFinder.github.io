@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFinder - Aplicaciones Virtuales Premium</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="iFinder.css">
+    <link rel="stylesheet" href="iFinder-menu.css">
+</head>
+<body>
+    <!-- HEADER CON MENÚ SUPERIOR -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1> <img src="img/logo.png" alt="iFinder Logo"> </h1>
+            </div>
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+            <button class="menu-toggle" onclick="toggleMobileMenu()">
+                <span class="material-icons">menu</span>
+            </button>
+
+            <!-- MENÚ DE CATEGORÍAS -->
+            <nav class="categories-menu" id="categoriesMenu">
+                <button class="category-link active" onclick="filtrarPorCategoria('todas', event)">
+                    <span class="material-icons">apps</span> Todas
+                </button>
+                <button class="category-link" onclick="filtrarPorCategoria('diseño', event)">
+                    <span class="material-icons">palette</span> Diseño
+                </button>
+                <button class="category-link" onclick="filtrarPorCategoria('edición', event)">
+                    <span class="material-icons">video_library</span> Edición
+                </button>
+                <button class="category-link" onclick="filtrarPorCategoria('música', event)">
+                    <span class="material-icons">music_note</span> Música
+                </button>
+                <button class="category-link" onclick="filtrarPorCategoria('3d', event)">
+                    <span class="material-icons">view_in_ar</span> 3D
+                </button>
+                <button class="category-link" onclick="filtrarPorCategoria('ingeniería', event)">
+                    <span class="material-icons">architecture</span> Ingeniería
+                </button>
+                <button class="category-link" onclick="filtrarPorCategoria('utilidades', event)">
+                    <span class="material-icons">settings</span> Utilidades
+                </button>
+            </nav>
+
+            <div class="payment-methods">
+                <div class="payment-logo-container">
+                    <img src="img/Paypallogo.png" alt="PayPal" class="payment-logo-img">
+                    <span class="letrap">Paypal</span>
+                    <span class="payment-text">PayPal</span>
+                </div>
+                <div class="payment-logo-container">
+                    
+                    <img src="img/Binance_Logo.png" alt="Binance" class="payment-logo-img">
+                    <span>Binance</span>
+                    <span class="payment-text">Binance</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+        <div class="container">
+            <!-- BARRA DE BÚSQUEDA Y BOTÓN -->
+            <div class="search-section">
+                <div class="search-bar-container">
+                    <div class="search-bar">
+                        <span class="material-icons search-icon">search</span>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Buscar aplicación..." 
+                            class="search-input"
+                        >
+                    </div>
+                    <button class="btn-how-works" onclick="openHowWorks()">
+                        <span class="material-icons">help_outline</span>
+                        ¿Cómo Funcionamos?
+                    </button>
+                </div>
+
+                <!-- ESTADÍSTICAS -->
+                <div class="stats">
+                    <p>Mostrando <span id="appCount">0</span> aplicaciones</p>
+                </div>
+            </div>
+
+            <!-- GRID DE APLICACIONES -->
+            <section class="apps-grid" id="appsGrid">
+                <!-- Las apps se generarán aquí con JavaScript -->
+            </section>
+        </div>
+    </main>
+
+    <!-- MODAL DE DETALLES -->
+    <div id="appModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">
+                <span class="material-icons">close</span>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-top">
+                    <div class="modal-icon-lg">
+                        <span id="modalIcon" class="material-icons">computer</span>
+                    </div>
+                    <div class="modal-title-section">
+                        <h2 id="modalTitle">Nombre de la App</h2>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <h3>Descripción</h3>
+                <p id="modalDescription">Descripción de la aplicación</p>
+
+                <h3>Características</h3>
+                <ul id="modalFeatures" class="features-list">
+                    <li>Característica 1</li>
+                </ul>
+
+                <h3>Compatibilidad</h3>
+                <p id="modalCompatibility">macOS</p>
+
+                <!-- PANEL DE PAGO (para apps de pago) -->
+                <div class="modal-payment-panel" style="display: block;">
+                    <h3>Recuerda!</h3>
+                    <p>Nuestro metodos de pago es Binance y Paypal</p>
+
+                    <!-- BOTÓN WHATSAPP -->
+                    <div class="whatsapp-contact">
+                        <a href="https://wa.me/?text=Hola!%20Me%20interesa%20la%20aplicaci%C3%B3n%20" 
+                           id="whatsappLink" 
+                           target="_blank" 
+                           class="btn-whatsapp">
+                            <span class="material-icons">chat</span>
+                            Contactar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PANEL DE DESCARGA (para apps gratis) -->
+                <div id="downloadPanel" style="display: none;">
+                    <h3>Descarga Gratuita</h3>
+                    <p class="free-app-text">Esta aplicación es completamente gratuita. ¡Descárgala ahora!</p>
+                    
+                    <!-- BOTÓN DE DESCARGA -->
+                    <button id="downloadButton" class="btn-download" onclick="window.open('#', '_blank')">
+                        <span class="material-icons">download</span>
+                        Descargar Ahora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ¿CÓMO FUNCIONAMOS? -->
+    <div id="howWorksModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeHowWorks()">
+                <span class="material-icons">close</span>
+            </button>
+            
+            <div class="modal-header">
+                <h2>Nuestro Proceso</h2>
+                <p class="modal-description">En iFinder nos especializamos en la instalación de aplicaciones para macOS en un entorno liberado de licencias. Ofrecemos un servicio completo y profesional.</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p><strong>Contacta</strong><br>Comunícate con nosotros para solicitar la instalación</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p><strong>Preparar</strong><br>Confirmamos la aplicación a instalar y preparamos el entorno</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p><strong>AnyDesk</strong><br>Te ayudamos a instalar AnyDesk para acceso remoto seguro</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p><strong>Permiso</strong><br>Otorgas permiso para proceder con la instalación remota</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p><strong>Instalación</strong><br>Realizamos la instalación completa y verificamos funcionamiento</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <p><strong>Pago</strong><br>Una vez completada, realizas el pago del servicio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN DE ÉXITO -->
+    <div id="notification" class="notification hidden">
+        <span class="material-icons">check_circle</span>
+        <span id="notificationText"></span>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>¿Cómo Funcionamos?</h3>
+                <p>En iFinder nos especializamos en la instalación de aplicaciones para macOS en un entorno liberado de licencias. Ofrecemos un servicio completo y profesional.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Garantía y Soporte</h3>
+                <div class="guarantee">
+                    <ul>
+                        <li>Garantía de 3 meses en todas nuestras aplicaciones</li>
+                        <li> Soporte técnico especializado</li>
+                        <li> Instalación profesional y segura</li>
+                        <li> Acceso remoto encriptado</li>
+                        <li> Compatibilidad garantizada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Métodos de Pago</h3>
+                <div class="footer-payment-methods">
+                    <div class="footer-payment-item">
+                        <img src="img/Paypallogo.png" alt="PayPal" class="footer-payment-logo">
+                        <span>PayPal</span>
+                    </div>
+                    <div class="footer-payment-item">
+                        <img src="img/Binance_Logo.png" alt="Binance" class="footer-payment-logo">
+                        <span>Binance</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>
+                    <strong>WhatsApp:</strong> 
+                    <a href="https://wa.me/59160569549" target="_blank" class="footer-link">+591 60569549</a>
+                </p>
+                <p>
+                    <strong>Email:</strong> 
+                    <a href="mailto:info@ifinder.com" class="footer-link">info@ifinder.com</a>
+                </p>
+                <p class="footer-hours">
+                    <strong>Horario:</strong> Lunes a Domingo<br>
+                    09:00 AM - 23:00 PM (GMT-5)
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 iFinder - Instalaciones Virtuales con iFinder. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="iFinder.js"></script>
+</body>
+</html>
