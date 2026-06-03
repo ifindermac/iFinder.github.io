@@ -185,6 +185,42 @@ let applications = [
       
   },
   {
+  "id": 8,
+  "name": "AutoCad 2026",
+  "price": 35.0,
+  "image": "img/apps/autocad2026.png",
+  "category": "ingeniería",
+  "description": "La versión 2026 de AutoCAD ofrece dibujo 2D/3D preciso, modelado paramétrico y colaboración en la nube. Ideal para arquitectura, ingeniería y diseño industrial.",
+  "features": [
+    "Funciones avanzadas con Autodesk AI (Paletas de bloques inteligentes y Guías de marcado)",
+    "Dibujo 2D optimizado y modelado 3D paramétrico de alto rendimiento",
+    "Información de actividad detallada y control de versiones en tiempo real",
+    "Compatibilidad total y nativa con archivos DWG/DXF de última generación",
+    "Sincronización avanzada con Autodesk Docs y flujos de trabajo en la nube",
+    "Soporte optimizado para Apple Silicon (M1/M2/M3/M4) y gráficos Metal"
+  ],
+  "compatibility": "macOS 14 (Sonoma) o superior / Windows 11",
+  "metodoPago": "Binance / PayPal"
+},
+  {
+  "id": 9,
+  "name": "Luminar Neo 1.24",
+  "price": 25.0,
+  "image": "img/apps/luminar.png",
+  "category": "diseño",
+  "description": "Luminar Neo 1.24 es un editor de fotos innovador impulsado por Inteligencia Artificial que simplifica los flujos de trabajo complejos y permite a los creadores dar vida a sus ideas más audaces.",
+  "features": [
+    "Herramientas generativas avanzadas (GenErase, GenSwap y GenExpand)",
+    "Mejora de retratos con IA (Face AI, Body AI y Skin AI)",
+    "Sustitución de cielo con un solo clic (Sky AI) y reiluminación 3D",
+    "Eliminación automática de fondos, líneas de luz y polvo del sensor",
+    "Flujo de trabajo por capas y soporte para archivos RAW de cámaras modernas",
+    "Optimización nativa para Apple Silicon (M1/M2/M3/M4) y aceleración por GPU"
+  ],
+  "compatibility": "macOS 13 (Ventura) o superior / Windows 10 u 11 (64-bit)",
+  "metodoPago": "Binance / PayPal"
+},
+  {
     id: 9,
     name: "GRAPHISOFT ARCHICAD 23",
     price: 55.0,
@@ -203,6 +239,24 @@ let applications = [
     metodoPago: "Binance / PayPal",
       
   },
+  {
+  "id": 10,
+  "name": "SketchUp Pro 2026 (v26.2)",
+  "price": 30.0,
+  "image": "img/apps/sketchup2026.svg",
+  "category": "ingeniería",
+  "description": "SketchUp Pro 2026 ofrece un modelado 3D rápido y fluido gracias a su nuevo motor gráfico avanzado. Incorpora herramientas de diseño asistido por IA, colaboración en la nube y documentación precisa con LayOut.",
+  "features": [
+    "Nuevo motor gráfico con aceleración por hardware para modelados complejos y fluidos",
+    "Integración con SketchUp Diffusion (generación de imágenes y renderizado conceptual con IA)",
+    "Modelado en tiempo real y herramientas avanzadas de oclusión ambiental",
+    "Vinculación fluida y automatizada con LayOut para documentación 2D profesional",
+    "Colaboración en la nube mediante Trimble Connect y soporte avanzado para archivos IFC 4",
+    "Soporte nativo para Apple Silicon y compatibilidad optimizada con pantallas de alta densidad"
+  ],
+  "compatibility": "macOS 14 (Sonoma) o superior / Windows 11 (64-bit)",
+  "metodoPago": "Binance / PayPal"
+},
   {
     id: 10,
     name: "SketchUp Pro",
@@ -1380,6 +1434,24 @@ let applications = [
     metodoPago: "Binance / PayPal",
       
   },
+  {
+  "id": 63,
+  "name": "KONTAKT 8",
+  "price": 42.0,
+  "image": "img/apps/kont.webp",
+  "category": "música",
+  "description": "La plataforma de muestreo estándar de la industria de Native Instruments. Descubre nuevas herramientas creativas, síntesis avanzada y una integración profunda con librerías virtuales de última generación.",
+  "features": [
+    "Nuevas funciones creativas 'Tools' (generadores de acordes y frases en tiempo real)",
+    "Motor de síntesis 'Leap' optimizado para manipulación rápida de loops y samples",
+    "Navegador inteligente mejorado con filtrado por etiquetas y carga ultra rápida",
+    "Herramientas avanzadas de edición, muestreo profundo y timestretch de alta fidelidad",
+    "Compatibilidad total con el formato NKS de nueva generación y soporte VST3/AU/AAX",
+    "Soporte nativo y optimizado para procesadores Apple Silicon y arquitecturas multinúcleo"
+  ],
+  "compatibility": "macOS 14 (Sonoma) o superior / Windows 10 u 11 (64-bit)",
+  "metodoPago": "Binance / PayPal"
+},
   {
     id: 64,
     name: "LUMINAR 4",
