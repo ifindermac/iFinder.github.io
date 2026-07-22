@@ -301,7 +301,7 @@ let applications = [
     id: 12,
     name: "Pixelmator Pro",
     price: 22.0,
-    image: "img/apps/Pixelmator.webp",
+    image: "img/apps/pixelmator.webp",
     category: "fotografía",
     description: "Editor de imágenes profesional optimizado para Mac con herramientas de IA, capas avanzadas y soporte completo para Apple Silicon.",
     features: [
@@ -537,7 +537,7 @@ let applications = [
     id: 21,
     name: "DaVinci Resolve Studio",
     price: 42.0,
-    image: "img/apps/DaVinci.svg",
+    image: "img/apps/davinci.svg",
     category: "video",
     description: "Suite completa de edición, color, audio y efectos visuales. Versión Studio con todas las funciones profesionales.",
     features: [
